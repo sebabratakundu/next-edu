@@ -13,22 +13,22 @@ const coursesList = [
   {
     id: 2,
     label: 'Node JS',
-    name: 'nodejs',
-    link: 'nodejs',
+    name: 'node-js',
+    link: 'node-js',
     desc: 'Node JS is a popular server side language to build scalable backend'
   },
   {
     id: 3,
     label: 'Laravel',
-    name: 'laravel',
-    link: 'laravel',
+    name: 'angular',
+    link: 'angular',
     desc: 'Laravel is a popular PHP framework for building modern scalable fullstack applications'
   },
   {
     id: 4,
-    label: 'SQL',
-    name: 'sql',
-    link: 'sql',
+    label: 'React Native',
+    name: 'react-native',
+    link: 'react-native',
     desc: 'SQL is a database query language to communicate with relational databases'
   },
 ];
@@ -42,7 +42,14 @@ function CourseItem(props) {
         <Typography>{desc}</Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" color="info"><Link href={`/courses/${link}`}>Learn More</Link></Button>
+        <Button variant="contained" color="info"><Link href={{
+          pathname: `/courses/${link}`,
+          query: {
+            label,
+            name,
+            desc
+          }
+        }}>Learn More</Link></Button>
       </CardActions>
     </Card>
   )
